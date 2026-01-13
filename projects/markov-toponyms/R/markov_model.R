@@ -1,30 +1,41 @@
-# A markov Model to generate toponimics
+# A markov Model to generate toponyms
 library(dplyr)
 library(stringr)
 library(readr)
 library(purrr)
 
-# load the data
-gb <- read_csv("data/GB.csv")
-summary(gb)
+# Choose the country you want to generate toponyms of
+# Curated data includes 13 countries, you can add more
+# Among others, options include:
+# UK       - GB
+# Italy    - IT
+# Spain    - ES
+# Germany  - DE
+# France   - FR
+# Portugal - PT
 
-# There are some locations outside main GB (e.g. Cyprus)
-# define bounds
-lat_min <- 49.613375732295246
-lat_max <- 61.53802290482379
-lon_min <- -12.95958876518865
-lon_max <-  3.5386788151964756
+my_file <- paste("data/",i,".tsv",sep="")
 
-# Filter to populated locations in traditional GB
-gb_places <- gb |>
-  filter(
-    feature_class == "P",
-    between(latitude,  lat_min, lat_max),
-    between(longitude, lon_min, lon_max)
+loc_places <- read_tsv(
+  my_file,
+  col_types = cols(
+    cc2 = col_character(),
+    admin1_code = col_character(),
+    admin3_code = col_character(),
+    admin4_code = col_character()
   )
+)
+
+  
+#loc_places <- read_tsv(
+ # "data/GB.tsv",
+  #col_types = cols(
+   # cc2 = col_character()
+  #)
+#)
 
 # Basic cleaning: lower-case, rm whitespaces, remove duplicates
-names_clean <- gb_places |>
+names_clean <- loc_places |>
   pull(name) |>                                      # extract vector from tibble
   tolower() |>                                       # remove capitalization
   str_trim() |>                                      # remove trailing spaces
@@ -82,13 +93,9 @@ build_markov_model <- function(names_vec, n = 3, report_every = 1000) {
   model
 }
 
-
-
 set.seed(123)
-# Training the model might take ~10 mins
+# Training the model might a couple mins
 markov_model <- build_markov_model(names_clean, n = 4)
-head(markov_model)
-
 
 # Generate toponyms -------------------------------------------------------
 
@@ -151,6 +158,8 @@ generate_new_name <- function(model, names_set,
   NA_character_
 }
 
+# The following produces 50 toponyms
+# Adjust as desired
 replicate(
   n = 50,
   generate_new_name(
@@ -159,5 +168,3 @@ replicate(
     min_len = 5,
     max_len = 15),
   simplify = TRUE)
-
-
