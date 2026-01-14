@@ -1,0 +1,12 @@
+name: markov-toponyms-app
+title: markov-toponyms-app
+username: federico-cm
+account: federico-cm
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 16421276
+bundleId: 11441005
+url: https://federico-cm.shinyapps.io/markov-toponyms-app/
+version: 1
+asMultiple: FALSE
+asStatic: FALSE

@@ -1,6 +1,9 @@
-# ai_playground
+# AI playground
 
-**ai_playground** is a curated collection of small, self-contained AI and machine-learning experiments, with a focus on lightweight implementations. Each project explores a distinct concept—such as generative modeling, simple NLP techniques, or classical machine-learning methods—while remaining easy to understand, extend, and adapt.
+**AI playground** is a curated collection of small, self-contained AI and machine-learning experiments, with a focus on lightweight implementations. Each project explores a distinct concept—such as generative modeling, simple NLP techniques, or classical machine-learning methods—while remaining easy to understand, extend, and adapt.
+
+## Examples
+[Try a fun interactive demo!](https://federico-cm.shinyapps.io/markov-toponyms-app/)
 
 ## Features
 - Modular project structure for easy navigation.
