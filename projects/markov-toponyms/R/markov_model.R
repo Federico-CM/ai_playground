@@ -5,11 +5,10 @@ library(readr)
 library(purrr)
 
 # Choose the country you want to generate toponyms of
-# Curated data includes 13 countries, you can add more
+# Curated data includes 12 countries, you can add more
 # Among others, options include:
 # UK       - GB
 # Italy    - IT
-# Spain    - ES
 # Germany  - DE
 # France   - FR
 # Portugal - PT
@@ -25,14 +24,6 @@ loc_places <- read_tsv(
     admin4_code = col_character()
   )
 )
-
-  
-#loc_places <- read_tsv(
- # "data/GB.tsv",
-  #col_types = cols(
-   # cc2 = col_character()
-  #)
-#)
 
 # Basic cleaning: lower-case, rm whitespaces, remove duplicates
 names_clean <- loc_places |>
