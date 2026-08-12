@@ -1,0 +1,35 @@
+name: Image Compression Tests
+
+on:
+  push:
+    paths:
+      - "projects/image_compression/**"
+      - ".github/workflows/image-compression-tests.yml"
+
+  pull_request:
+    paths:
+      - "projects/image_compression/**"
+      - ".github/workflows/image-compression-tests.yml"
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: projects/image_compression
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v6
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.10"
+
+      - name: Install package and test dependencies
+        run: python -m pip install -e ".[dev]"
+
+      - name: Run tests
+        run: pytest

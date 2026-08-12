@@ -1,0 +1,12 @@
+README.md
+pyproject.toml
+src/kmeans_image/__init__.py
+src/kmeans_image/cli.py
+src/kmeans_image/core.py
+src/kmeans_image.egg-info/PKG-INFO
+src/kmeans_image.egg-info/SOURCES.txt
+src/kmeans_image.egg-info/dependency_links.txt
+src/kmeans_image.egg-info/entry_points.txt
+src/kmeans_image.egg-info/requires.txt
+src/kmeans_image.egg-info/top_level.txt
+tests/test_core.py
