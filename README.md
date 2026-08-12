@@ -12,7 +12,7 @@ Each project has its own README with purpose, approach, and result interpretatio
 | Domain | Techniques |
 |---|---|
 | Supervised learning | Logistic regression, Naïve Bayes, random forest, binary classification |
-| Unsupervised learning | K-means (from scratch), customer segmentation, color quantization |
+| Unsupervised learning | K-means (from scratch), data segmentation, color quantization |
 | Dimensionality reduction | Linear Discriminant Analysis, feature projection |
 | NLP & text generation | Markov chains, n-gram language models, text preprocessing |
 | LLM integration | OpenAI API, prompt engineering, stateful conversation |
